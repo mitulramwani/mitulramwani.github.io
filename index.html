@@ -45,10 +45,10 @@
           <form
             action="https://app.convertkit.com/forms/983ed883fe/subscriptions"
             method="POST"
-            target="_blank"
             class="subscribe-form"
-            onsubmit="handleSubscribe()"
+            onsubmit="handleSubscribe(event)"
           >
+            <input type="hidden" name="redirect_to" value="https://mitulramwani.github.io/?subscribed=true" />
             <div class="subscribe-field-group">
               <input
                 type="text"
@@ -87,11 +87,21 @@
   </footer>
 
   <script>
-    function handleSubscribe() {
-      setTimeout(() => {
-        document.querySelector('.subscribe-form').style.display = 'none';
-        document.getElementById('subscribe-success').style.display = 'flex';
-      }, 500);
+    // Show success message if redirected back after subscription
+    if (window.location.search.includes('subscribed=true')) {
+      window.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('.subscribe-form');
+        const success = document.getElementById('subscribe-success');
+        if (form) form.style.display = 'none';
+        if (success) success.style.display = 'flex';
+        // Clean up URL
+        window.history.replaceState({}, '', '/');
+      });
+    }
+
+    function handleSubscribe(e) {
+      // Allow normal form submission to ConvertKit
+      // ConvertKit will redirect back to the page with ?subscribed=true
     }
   </script>
   <script src="js/blog-loader.js"></script>
