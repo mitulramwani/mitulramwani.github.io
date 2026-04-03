@@ -16,94 +16,13 @@
   <div id="career-slot"></div>
   <div id="expertise-slot"></div>
   <div id="blog-slot"></div>
-
-  <!-- Subscribe section hardcoded here — dynamic injection blocks form scripts -->
-  <section id="subscribe">
-    <div class="subscribe-inner">
-      <div class="subscribe-left">
-        <div class="section-label">Stay In The Loop</div>
-        <h2 class="section-title">Get new posts in your inbox</h2>
-        <p class="subscribe-desc">No noise. When I publish something new on engineering leadership, distributed systems, or career growth — you'll get it. That's it.</p>
-        <div class="subscribe-bullets">
-          <div class="subscribe-bullet">
-            <div class="subscribe-bullet-dot"></div>
-            <span>New posts delivered straight to your inbox</span>
-          </div>
-          <div class="subscribe-bullet">
-            <div class="subscribe-bullet-dot"></div>
-            <span>No spam, no marketing — just writing</span>
-          </div>
-          <div class="subscribe-bullet">
-            <div class="subscribe-bullet-dot"></div>
-            <span>Unsubscribe any time, no questions asked</span>
-          </div>
-        </div>
-      </div>
-      <div class="subscribe-right">
-        <div class="subscribe-form-wrapper">
-          <p class="subscribe-form-label">Join readers who get my latest writing:</p>
-          <form
-            action="https://app.convertkit.com/forms/911ecdb7a8/subscriptions"
-            method="POST"
-            class="subscribe-form"
-            onsubmit="handleSubscribe(event)"
-          >
-            <input type="hidden" name="redirect_to" value="https://mitulramwani.github.io/?subscribed=true" />
-            <div class="subscribe-field-group">
-              <input
-                type="text"
-                name="fields[first_name]"
-                placeholder="First name (optional)"
-                class="subscribe-input"
-              />
-              <input
-                type="email"
-                name="email_address"
-                placeholder="Your email address"
-                required
-                class="subscribe-input"
-              />
-            </div>
-            <button type="submit" class="subscribe-btn">
-              <span class="subscribe-btn-text">Subscribe — it's free</span>
-              <span class="subscribe-btn-arrow">→</span>
-            </button>
-            <p class="subscribe-privacy">No spam. Unsubscribe any time.</p>
-          </form>
-          <div class="subscribe-success" id="subscribe-success" style="display:none;">
-            <div class="subscribe-success-icon">✓</div>
-            <p class="subscribe-success-title">You're in!</p>
-            <p class="subscribe-success-msg">Check your inbox to confirm your subscription.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <div id="subscribe-slot"></div>
   <div id="contact-slot"></div>
 
   <footer>
     Crafted with care &middot; <span>Mitul Ramwani</span> &middot; 2025
   </footer>
 
-  <script>
-    // Show success message if redirected back after subscription
-    if (window.location.search.includes('subscribed=true')) {
-      window.addEventListener('DOMContentLoaded', () => {
-        const form = document.querySelector('.subscribe-form');
-        const success = document.getElementById('subscribe-success');
-        if (form) form.style.display = 'none';
-        if (success) success.style.display = 'flex';
-        // Clean up URL
-        window.history.replaceState({}, '', '/');
-      });
-    }
-
-    function handleSubscribe(e) {
-      // Allow normal form submission to ConvertKit
-      // ConvertKit will redirect back to the page with ?subscribed=true
-    }
-  </script>
   <script src="js/blog-loader.js"></script>
   <script src="js/loader.js"></script>
 </body>
