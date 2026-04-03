@@ -2,7 +2,7 @@
 
 A personal website serving as an online resume and technical blog for Mitul Ramwani, Software Development Manager at Amazon with 15+ years of experience across Amazon, MathWorks, and GE Healthcare.
 
-🌐 **Live site:** [mitulecer.github.io](https://mitulecer.github.io)
+🌐 **Live site:** [mitulramwani.github.io](https://mitulramwani.github.io)
 
 ---
 
@@ -116,7 +116,7 @@ Commit and push all three files (`posts/my-new-post.md`, `posts/index.json`, `fe
 
 ## ConvertKit Setup
 
-Subscribers sign up via the embedded ConvertKit form in the Subscribe section. ConvertKit is connected to the site's RSS feed (`https://mitulecer.github.io/feed.xml`) via an RSS automation, so new posts trigger automatic email notifications.
+Subscribers sign up via the embedded ConvertKit form in the Subscribe section. ConvertKit is connected to the site's RSS feed (`https://mitulramwani.github.io/feed.xml`) via an RSS automation, so new posts trigger automatic email notifications.
 
 To update the ConvertKit form embed, edit `sections/subscribe.html`.
 

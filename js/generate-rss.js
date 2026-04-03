@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://mitulecer.github.io';
+const SITE_URL = 'https://mitulramwani.github.io';
 const SITE_TITLE = 'Mitul Ramwani — Engineering Leader';
 const SITE_DESC = 'Writing on engineering leadership, distributed systems, and career growth.';
 const AUTHOR = 'Mitul Ramwani';
