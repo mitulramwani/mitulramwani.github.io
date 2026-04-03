@@ -42,7 +42,6 @@
     Crafted with care &middot; <span>Mitul Ramwani</span> &middot; 2025
   </footer>
 
-  <!-- marked.js — converts Markdown to HTML -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
   <script src="js/loader.js"></script>
   <script>
@@ -57,27 +56,22 @@
       }
 
       try {
-        // Load post metadata from index.json
         const indexRes = await fetch('posts/index.json');
         const posts = await indexRes.json();
         const meta = posts.find(p => p.slug === slug);
 
-        // Load post markdown content
         const mdRes = await fetch(`posts/${slug}.md`);
         if (!mdRes.ok) throw new Error('Post not found');
         const markdown = await mdRes.text();
 
-        // Update page title
         if (meta) document.title = `${meta.title} — Mitul Ramwani`;
 
-        // Render post
         container.innerHTML = `
           ${meta ? `<div class="post-category">${meta.category}</div>` : ''}
           <h1 class="post-title">${meta ? meta.title : slug}</h1>
           ${meta ? `<div class="post-meta">${formatDate(meta.date)} · ${meta.readTime}</div>` : ''}
           <div class="post-body">${marked.parse(markdown)}</div>
         `;
-
       } catch (err) {
         console.error(err);
         container.innerHTML = '<div class="post-error">Sorry, this post could not be loaded.</div>';
@@ -85,13 +79,10 @@
     }
 
     function formatDate(dateStr) {
-      return new Date(dateStr).toLocaleDateString('en-US', {
-        year: 'numeric', month: 'long', day: 'numeric'
-      });
+      return new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
     loadPost();
   </script>
-  <script src="js/blog-loader.js"></script>
 </body>
 </html>

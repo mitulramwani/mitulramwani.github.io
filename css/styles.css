@@ -96,6 +96,21 @@ section { padding: 100px 10%; }
 .blog-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--ink-light); border-top: 1px solid var(--border); padding-top: 16px; }
 .blog-read-more { font-size: 13px; color: var(--accent); font-weight: 500; text-decoration: none; }
 
+/* SUBSCRIBE */
+#subscribe { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.subscribe-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.subscribe-desc { font-size: 16px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 32px; }
+.subscribe-bullets { display: flex; flex-direction: column; gap: 12px; }
+.subscribe-bullet { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--ink-muted); }
+.subscribe-bullet-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.subscribe-right { display: flex; align-items: center; justify-content: center; }
+.subscribe-form-wrapper { width: 100%; background: var(--accent-pale); border-radius: 8px; padding: 36px 32px; }
+.subscribe-form-label { font-size: 13px; color: var(--ink-muted); margin-bottom: 20px; font-weight: 500; display: block; }
+.subscribe-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--ink); color: var(--cream); border: none; border-radius: 4px; padding: 16px 28px; font-family: var(--sans); font-size: 15px; font-weight: 500; letter-spacing: 0.3px; cursor: pointer; transition: background 0.2s; width: 100%; text-decoration: none; }
+.subscribe-btn:hover { background: var(--accent); color: var(--cream); }
+.subscribe-btn-arrow { font-size: 18px; }
+.subscribe-privacy { font-size: 12px; color: var(--ink-light); text-align: center; margin-top: 12px; }
+
 /* CONTACT */
 .contact-bg { background: var(--accent-pale); border-top: 1px solid var(--border); }
 .contact-inner { max-width: 640px; }
@@ -118,6 +133,7 @@ footer span { color: rgba(247,243,238,0.7); }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .expertise-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; }
+  .subscribe-inner { grid-template-columns: 1fr; gap: 40px; }
   .timeline::before { left: 0; }
   .timeline-item { grid-template-columns: 1fr; gap: 8px; }
   .timeline-item::before { left: -4px; }
@@ -129,23 +145,4 @@ footer span { color: rgba(247,243,238,0.7); }
   .nav-links { display: none; }
   .hero-name { font-size: 52px; }
   .about-stats { grid-template-columns: 1fr; }
-}
-
-/* SUBSCRIBE */
-#subscribe { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.subscribe-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.subscribe-desc { font-size: 16px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 32px; }
-.subscribe-bullets { display: flex; flex-direction: column; gap: 12px; }
-.subscribe-bullet { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--ink-muted); }
-.subscribe-bullet-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-.subscribe-right { display: flex; align-items: center; justify-content: center; }
-.subscribe-form-wrapper { width: 100%; background: var(--accent-pale); border-radius: 8px; padding: 36px 32px; }
-.subscribe-form-label { font-size: 13px; color: var(--ink-muted); margin-bottom: 20px; font-weight: 500; display: block; }
-.subscribe-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--ink); color: var(--cream); border: none; border-radius: 4px; padding: 16px 28px; font-family: var(--sans); font-size: 15px; font-weight: 500; letter-spacing: 0.3px; cursor: pointer; transition: background 0.2s; width: 100%; text-decoration: none; }
-.subscribe-btn:hover { background: var(--accent); color: var(--cream); }
-.subscribe-btn-arrow { font-size: 18px; }
-.subscribe-privacy { font-size: 12px; color: var(--ink-light); text-align: center; margin-top: 12px; }
-
-@media (max-width: 900px) {
-  .subscribe-inner { grid-template-columns: 1fr; gap: 40px; }
 }

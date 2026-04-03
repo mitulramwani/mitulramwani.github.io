@@ -1,8 +1,7 @@
 // RSS Feed Generator
-// Run this script locally with Node.js whenever you publish a new post:
+// Run this whenever you publish a new post:
 //   node js/generate-rss.js
-// It reads posts/index.json and writes feed.xml to the site root.
-// Commit feed.xml to GitHub — ConvertKit will detect new posts via this feed.
+// Reads posts/index.json and writes feed.xml to site root.
 
 const fs = require('fs');
 const path = require('path');
@@ -13,8 +12,6 @@ const SITE_DESC = 'Writing on engineering leadership, distributed systems, and c
 const AUTHOR = 'Mitul Ramwani';
 
 const posts = JSON.parse(fs.readFileSync(path.join(__dirname, '../posts/index.json'), 'utf8'));
-
-// Sort newest first
 const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const items = sorted.map(post => `

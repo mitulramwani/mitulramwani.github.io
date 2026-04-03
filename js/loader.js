@@ -10,16 +10,6 @@ const sections = [
   { id: 'contact-slot',   file: 'sections/contact.html' },
 ];
 
-// Re-executes any <script> tags inside an element (innerHTML blocks script execution)
-function reactivateScripts(el) {
-  el.querySelectorAll('script').forEach(oldScript => {
-    const newScript = document.createElement('script');
-    [...oldScript.attributes].forEach(attr => newScript.setAttribute(attr.name, attr.value));
-    newScript.textContent = oldScript.textContent;
-    oldScript.parentNode.replaceChild(newScript, oldScript);
-  });
-}
-
 async function loadSection({ id, file }) {
   const slot = document.getElementById(id);
   if (!slot) return;
@@ -28,7 +18,6 @@ async function loadSection({ id, file }) {
     if (!res.ok) throw new Error(`Failed to load ${file}`);
     const html = await res.text();
     slot.innerHTML = html;
-    reactivateScripts(slot);
   } catch (err) {
     console.error(`Error loading section [${id}]:`, err);
   }
