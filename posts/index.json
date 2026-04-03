@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "from-ic-to-manager",
+    "title": "From IC to Manager: What Nobody Tells You",
+    "category": "Leadership",
+    "date": "2025-01-15",
+    "readTime": "8 min read",
+    "excerpt": "The hardest part of becoming a manager isn't learning new skills — it's unlearning the ones that made you a great engineer.",
+    "color": "#8B4513"
+  },
+  {
+    "slug": "lessons-from-s3",
+    "title": "Lessons from Operating S3: Designing for Failure at Scale",
+    "category": "Technical",
+    "date": "2025-02-10",
+    "readTime": "12 min read",
+    "excerpt": "Every system will fail. The question is whether you designed it to fail gracefully or catastrophically — and what S3's cellular architecture taught me about that.",
+    "color": "#1A6B8A"
+  },
+  {
+    "slug": "amazon-sdm-interview",
+    "title": "The Amazon SDM Interview: What I Wish I'd Known",
+    "category": "Career",
+    "date": "2025-03-05",
+    "readTime": "10 min read",
+    "excerpt": "A candid walkthrough of the SDM interview loop — the bar raiser, leadership principles deep-dives, and the system design questions that actually matter.",
+    "color": "#4A7C59"
+  }
+]

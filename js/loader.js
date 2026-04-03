@@ -10,16 +10,19 @@ const sections = [
 ];
 
 async function loadSection({ id, file }) {
+  const slot = document.getElementById(id);
+  if (!slot) return; // slot not present on this page — skip
   try {
     const res = await fetch(file);
     if (!res.ok) throw new Error(`Failed to load ${file}`);
     const html = await res.text();
-    const slot = document.getElementById(id);
-    if (slot) slot.innerHTML = html;
+    slot.innerHTML = html;
   } catch (err) {
     console.error(`Error loading section [${id}]:`, err);
   }
 }
 
-// Load all sections in parallel
-Promise.all(sections.map(loadSection));
+// Load all sections, then trigger blog loader if present
+Promise.all(sections.map(loadSection)).then(() => {
+  if (typeof loadBlogPosts === 'function') loadBlogPosts();
+});

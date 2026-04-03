@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Mitul Ramwani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .post-page { max-width: 720px; margin: 0 auto; padding: 120px 5% 80px; }
+    .post-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-muted); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+    .post-back:hover { color: var(--accent); }
+    .post-category { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .post-title { font-family: var(--serif); font-size: clamp(28px, 5vw, 48px); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 16px; letter-spacing: -1px; }
+    .post-meta { font-size: 13px; color: var(--ink-light); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .post-body { font-size: 17px; color: var(--ink-muted); line-height: 1.85; }
+    .post-body h1 { display: none; }
+    .post-body h2 { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); margin: 48px 0 16px; letter-spacing: -0.5px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 24px; }
+    .post-body strong { color: var(--ink); font-weight: 500; }
+    .post-body ul, .post-body ol { margin: 0 0 24px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding-left: 20px; margin: 32px 0; font-style: italic; color: var(--ink-muted); }
+    .post-body code { background: var(--accent-pale); padding: 2px 6px; border-radius: 3px; font-size: 14px; font-family: monospace; color: var(--accent); }
+    .post-loading { color: var(--ink-light); font-size: 15px; padding: 60px 0; }
+    .post-error { color: var(--ink-muted); font-size: 15px; padding: 60px 0; }
+  </style>
+</head>
+<body>
+
+  <div id="nav-slot"></div>
+
+  <div class="post-page">
+    <a href="index.html#blog" class="post-back">← Back to writing</a>
+    <div id="post-content">
+      <div class="post-loading">Loading post...</div>
+    </div>
+  </div>
+
+  <footer>
+    Crafted with care &middot; <span>Mitul Ramwani</span> &middot; 2025
+  </footer>
+
+  <!-- marked.js — converts Markdown to HTML -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+  <script src="js/loader.js"></script>
+  <script>
+    async function loadPost() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+      const container = document.getElementById('post-content');
+
+      if (!slug) {
+        container.innerHTML = '<div class="post-error">No post specified.</div>';
+        return;
+      }
+
+      try {
+        // Load post metadata from index.json
+        const indexRes = await fetch('posts/index.json');
+        const posts = await indexRes.json();
+        const meta = posts.find(p => p.slug === slug);
+
+        // Load post markdown content
+        const mdRes = await fetch(`posts/${slug}.md`);
+        if (!mdRes.ok) throw new Error('Post not found');
+        const markdown = await mdRes.text();
+
+        // Update page title
+        if (meta) document.title = `${meta.title} — Mitul Ramwani`;
+
+        // Render post
+        container.innerHTML = `
+          ${meta ? `<div class="post-category">${meta.category}</div>` : ''}
+          <h1 class="post-title">${meta ? meta.title : slug}</h1>
+          ${meta ? `<div class="post-meta">${formatDate(meta.date)} · ${meta.readTime}</div>` : ''}
+          <div class="post-body">${marked.parse(markdown)}</div>
+        `;
+
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = '<div class="post-error">Sorry, this post could not be loaded.</div>';
+      }
+    }
+
+    function formatDate(dateStr) {
+      return new Date(dateStr).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+
+    loadPost();
+  </script>
+  <script src="js/blog-loader.js"></script>
+</body>
+</html>
