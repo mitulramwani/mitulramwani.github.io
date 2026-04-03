@@ -16,13 +16,84 @@
   <div id="career-slot"></div>
   <div id="expertise-slot"></div>
   <div id="blog-slot"></div>
-  <div id="subscribe-slot"></div>
+
+  <!-- Subscribe section hardcoded here — dynamic injection blocks form scripts -->
+  <section id="subscribe">
+    <div class="subscribe-inner">
+      <div class="subscribe-left">
+        <div class="section-label">Stay In The Loop</div>
+        <h2 class="section-title">Get new posts in your inbox</h2>
+        <p class="subscribe-desc">No noise. When I publish something new on engineering leadership, distributed systems, or career growth — you'll get it. That's it.</p>
+        <div class="subscribe-bullets">
+          <div class="subscribe-bullet">
+            <div class="subscribe-bullet-dot"></div>
+            <span>New posts delivered straight to your inbox</span>
+          </div>
+          <div class="subscribe-bullet">
+            <div class="subscribe-bullet-dot"></div>
+            <span>No spam, no marketing — just writing</span>
+          </div>
+          <div class="subscribe-bullet">
+            <div class="subscribe-bullet-dot"></div>
+            <span>Unsubscribe any time, no questions asked</span>
+          </div>
+        </div>
+      </div>
+      <div class="subscribe-right">
+        <div class="subscribe-form-wrapper">
+          <p class="subscribe-form-label">Join readers who get my latest writing:</p>
+          <form
+            action="https://app.convertkit.com/forms/983ed883fe/subscriptions"
+            method="POST"
+            target="_blank"
+            class="subscribe-form"
+            onsubmit="handleSubscribe()"
+          >
+            <div class="subscribe-field-group">
+              <input
+                type="text"
+                name="fields[first_name]"
+                placeholder="First name (optional)"
+                class="subscribe-input"
+              />
+              <input
+                type="email"
+                name="email_address"
+                placeholder="Your email address"
+                required
+                class="subscribe-input"
+              />
+            </div>
+            <button type="submit" class="subscribe-btn">
+              <span class="subscribe-btn-text">Subscribe — it's free</span>
+              <span class="subscribe-btn-arrow">→</span>
+            </button>
+            <p class="subscribe-privacy">No spam. Unsubscribe any time.</p>
+          </form>
+          <div class="subscribe-success" id="subscribe-success" style="display:none;">
+            <div class="subscribe-success-icon">✓</div>
+            <p class="subscribe-success-title">You're in!</p>
+            <p class="subscribe-success-msg">Check your inbox to confirm your subscription.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div id="contact-slot"></div>
 
   <footer>
     Crafted with care &middot; <span>Mitul Ramwani</span> &middot; 2025
   </footer>
 
+  <script>
+    function handleSubscribe() {
+      setTimeout(() => {
+        document.querySelector('.subscribe-form').style.display = 'none';
+        document.getElementById('subscribe-success').style.display = 'flex';
+      }, 500);
+    }
+  </script>
   <script src="js/blog-loader.js"></script>
   <script src="js/loader.js"></script>
 </body>

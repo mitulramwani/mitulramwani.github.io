@@ -1,4 +1,5 @@
 // Section loader — fetches each HTML section and injects it into the page
+// Note: subscribe section is hardcoded in index.html (dynamic injection blocks form scripts)
 const sections = [
   { id: 'nav-slot',       file: 'sections/nav.html' },
   { id: 'hero-slot',      file: 'sections/hero.html' },
@@ -6,13 +7,12 @@ const sections = [
   { id: 'career-slot',    file: 'sections/career.html' },
   { id: 'expertise-slot', file: 'sections/expertise.html' },
   { id: 'blog-slot',      file: 'sections/blog.html' },
-  { id: 'subscribe-slot', file: 'sections/subscribe.html' },
   { id: 'contact-slot',   file: 'sections/contact.html' },
 ];
 
 async function loadSection({ id, file }) {
   const slot = document.getElementById(id);
-  if (!slot) return; // slot not present on this page — skip
+  if (!slot) return;
   try {
     const res = await fetch(file);
     if (!res.ok) throw new Error(`Failed to load ${file}`);
