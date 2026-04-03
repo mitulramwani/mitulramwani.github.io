@@ -6,6 +6,7 @@ const sections = [
   { id: 'career-slot',    file: 'sections/career.html' },
   { id: 'expertise-slot', file: 'sections/expertise.html' },
   { id: 'blog-slot',      file: 'sections/blog.html' },
+  { id: 'subscribe-slot', file: 'sections/subscribe.html' },
   { id: 'contact-slot',   file: 'sections/contact.html' },
 ];
 

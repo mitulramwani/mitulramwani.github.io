@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mitul Ramwani — Engineering Leader</title>
+    <link>https://mitulecer.github.io</link>
+    <description>Writing on engineering leadership, distributed systems, and career growth.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Apr 2026 05:43:06 GMT</lastBuildDate>
+    <atom:link href="https://mitulecer.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    
+  <item>
+    <title><![CDATA[The Amazon SDM Interview: What I Wish I'd Known]]></title>
+    <link>https://mitulecer.github.io/post.html?slug=amazon-sdm-interview</link>
+    <guid isPermaLink="true">https://mitulecer.github.io/post.html?slug=amazon-sdm-interview</guid>
+    <pubDate>Wed, 05 Mar 2025 00:00:00 GMT</pubDate>
+    <category><![CDATA[Career]]></category>
+    <description><![CDATA[A candid walkthrough of the SDM interview loop — the bar raiser, leadership principles deep-dives, and the system design questions that actually matter.]]></description>
+    <author>Mitul Ramwani</author>
+  </item>
+  <item>
+    <title><![CDATA[Lessons from Operating S3: Designing for Failure at Scale]]></title>
+    <link>https://mitulecer.github.io/post.html?slug=lessons-from-s3</link>
+    <guid isPermaLink="true">https://mitulecer.github.io/post.html?slug=lessons-from-s3</guid>
+    <pubDate>Mon, 10 Feb 2025 00:00:00 GMT</pubDate>
+    <category><![CDATA[Technical]]></category>
+    <description><![CDATA[Every system will fail. The question is whether you designed it to fail gracefully or catastrophically — and what S3's cellular architecture taught me about that.]]></description>
+    <author>Mitul Ramwani</author>
+  </item>
+  <item>
+    <title><![CDATA[From IC to Manager: What Nobody Tells You]]></title>
+    <link>https://mitulecer.github.io/post.html?slug=from-ic-to-manager</link>
+    <guid isPermaLink="true">https://mitulecer.github.io/post.html?slug=from-ic-to-manager</guid>
+    <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
+    <category><![CDATA[Leadership]]></category>
+    <description><![CDATA[The hardest part of becoming a manager isn't learning new skills — it's unlearning the ones that made you a great engineer.]]></description>
+    <author>Mitul Ramwani</author>
+  </item>
+  </channel>
+</rss>

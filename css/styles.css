@@ -130,3 +130,23 @@ footer span { color: rgba(247,243,238,0.7); }
   .hero-name { font-size: 52px; }
   .about-stats { grid-template-columns: 1fr; }
 }
+
+/* SUBSCRIBE */
+#subscribe { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.subscribe-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.subscribe-desc { font-size: 16px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 32px; }
+.subscribe-bullets { display: flex; flex-direction: column; gap: 12px; }
+.subscribe-bullet { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--ink-muted); }
+.subscribe-bullet-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.subscribe-right { display: flex; align-items: center; justify-content: center; }
+.subscribe-form-wrapper { width: 100%; }
+
+/* ConvertKit form overrides — matches site aesthetic */
+.subscribe-form-wrapper .formkit-form { background: transparent !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
+.subscribe-form-wrapper .formkit-field input { font-family: var(--sans) !important; border: 1px solid var(--border) !important; border-radius: 4px !important; padding: 12px 16px !important; font-size: 15px !important; background: var(--cream) !important; color: var(--ink) !important; }
+.subscribe-form-wrapper .formkit-submit { background: var(--ink) !important; border-radius: 4px !important; font-family: var(--sans) !important; font-size: 14px !important; font-weight: 500 !important; letter-spacing: 0.3px !important; padding: 14px 28px !important; transition: background 0.2s !important; }
+.subscribe-form-wrapper .formkit-submit:hover { background: var(--accent) !important; }
+
+@media (max-width: 900px) {
+  .subscribe-inner { grid-template-columns: 1fr; gap: 40px; }
+}
